@@ -6,19 +6,31 @@
     <link rel="stylesheet" href="style.css">
     <title>Genesis</title>
 </head>
-<body>
+<div>
     <div class= lives>
         <img id="live1" src="images/lives.png" alt="Vida 1">
         <img id="live2" src="images/lives.png" alt="Vida 2">
         <img id="live3" src="images/lives.png" alt="Vida 3">
     </div>
     <img id="mute" src="images/unmute.png" title = "Remover som" alt="mutar" onclick="muting()">
+
     <div class="main-game">
         <div class="genius">
             <div class="blue"></div>
             <div class="yellow"></div>
             <div class="red"></div>
             <div class="green"></div>
+        </div>
+    </div>
+
+    <div class="pontuacao">
+        <div>
+            <h4>Sua pontuação:</h4>
+            <h4 id="score">0</h4>
+        </div>
+        <div>
+            <h4>Melhor pontuação:</h4>
+            <h4 id="bestScore">0</h4>
         </div>
     </div>
 

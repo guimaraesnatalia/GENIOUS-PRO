@@ -2,7 +2,8 @@ let order = [];
 let clickedOrder = [];
 let score = 0;
 let mute = false;
-let lives = 3
+let lives = 3;
+let bestScore = 0;
 
 //0 - verde: Dó
 //1 - vermelho: Ré
@@ -38,12 +39,6 @@ let lightColor = (element, number) => {
     }, number-1);
 }
 
-let executeSequence = ()=>{
-    for (i in order){
-        lightColor(order[i], Number(i));
-    }
-}
-
 //checa se os botoes clicados são os mesmos da ordem gerada no jogo
 let checkOrder = () => {
     let correctOrder = true;
@@ -55,8 +50,12 @@ let checkOrder = () => {
         }
     }
     if ((clickedOrder.length == order.length) & (correctOrder)) {
-        alert(`Pontuação: ${score}\nVocê acertou! Iniciando próximo nível!`);
-        nextLevel();
+        document.getElementById('score').textContent = score;
+        
+        setTimeout(()=>{
+            nextLevel();
+        }, 500);
+        
     }
 }
 
@@ -97,6 +96,12 @@ let gameOver = () => {
     order = [];
     clickedOrder = [];
 
+    if (bestScore < score){
+        bestScore = score;
+        document.getElementById('bestScore').textContent = bestScore;
+        alert('Parabéns\nVocê conseguiu a melhor pontuação do jogo!');
+    }
+        
     playGame();
 }
 
@@ -109,7 +114,7 @@ let playGame = () => {
     document.getElementById('live1').src = "images/lives.png";
     document.getElementById('live2').src = "images/lives.png";
     document.getElementById('live3').src = "images/lives.png";
-
+    document.getElementById('score').textContent = score;
 
     nextLevel();
 }
@@ -142,7 +147,7 @@ let muting = () => {
     } 
 }
 
-//funcao para game over
+//funcao para identificar se ainda existe vidas ou se vai encerrar o jogo
 let tryAgain = () => {
     lives--;
     document.getElementById('live'+(lives+1)).src = "images/heartbroken.png";

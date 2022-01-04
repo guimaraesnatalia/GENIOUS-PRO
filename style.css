@@ -1,6 +1,7 @@
 body{
     margin:0;
-    background-color: rgb(208, 255, 239);
+    background-color: rgb(228, 242, 237);
+    position: relative;
 }
 
 .main-game{
@@ -64,6 +65,7 @@ body{
     margin-top: 100px;
     margin-left: 40px;
     position: absolute;
+    right: 10px;
 }
 
 .lives img{
@@ -77,5 +79,23 @@ body{
     padding: 10px;
     padding-bottom: 0;
     position: absolute;
+    right: 10px;
+}
 
+.pontuacao{
+    border: 2px solid rgb(61, 167, 109);
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+    position:absolute;
+    border-radius: 10%;
+    background-color: #fff;
+    align-items: flex-end;
+    display: grid;
+    top : 10px;
+    left: 10px;
+}
+
+.pontuacao div h4{
+    display: inline-block;
 }
