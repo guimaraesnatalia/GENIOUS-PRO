@@ -1,6 +1,7 @@
 let order = [];
 let clickedOrder = [];
 let score = 0;
+let mute = false;
 
 //0 - verde: Dó
 //1 - vermelho: Ré
@@ -102,7 +103,9 @@ let playGame = () => {
 //Função que executa o audio de cada botão
 function playSound(filename){
     var audio = new Audio('sounds/'+filename+'.wav');
-    audio.play();
+    
+    if (!mute)
+        audio.play();
 }
 
 //eventos de clique para as cores
@@ -110,6 +113,19 @@ green.onclick = () => click(0);
 red.onclick = () => click(1);
 yellow.onclick = () => click(2);
 blue.onclick = () => click(3);
+
+muting = () => {
+    mute = !mute;
+
+    if(mute){
+        document.getElementById('mute').src = 'images/mute.png';
+        document.getElementById('mute').title = 'Retornar som';
+    }        
+    else{
+        document.getElementById('mute').src = 'images/unmute.png';
+        document.getElementById('mute').title = 'Remover som';
+    } 
+}
 
 //inicio do jogo
 playGame();
