@@ -2,10 +2,10 @@ let order = [];
 let clickedOrder = [];
 let score = 0;
 
-//0 - verde
-//1 - vermelho
-//2 - amarelo
-//3 - azul
+//0 - verde: Dó
+//1 - vermelho: Ré
+//2 - amarelo: Mi
+//3 - azul: Fá
 
 const blue = document.querySelector('.blue');
 const red = document.querySelector('.red');
@@ -28,6 +28,7 @@ let shuffleOrder = () => {
 let lightColor = (element, number) => {
     number = number * 500;
     setTimeout(() => {
+        playSound(element.classList);
         element.classList.add('selected');
     }, number-250);
     setTimeout(() => {
@@ -52,7 +53,9 @@ let checkOrder = () => {
 //funcao para o clique do usuario
 let click = (color) => {
     clickedOrder[clickedOrder.length] = color;
+    playSound(createColorElement(color).classList);
     createColorElement(color).classList.add('selected');
+    
 
     setTimeout(() => {
         createColorElement(color).classList.remove('selected');
@@ -96,12 +99,17 @@ let playGame = () => {
     nextLevel();
 }
 
+//Função que executa o audio de cada botão
+function playSound(filename){
+    var audio = new Audio('sounds/'+filename+'.wav');
+    audio.play();
+}
+
 //eventos de clique para as cores
 green.onclick = () => click(0);
 red.onclick = () => click(1);
 yellow.onclick = () => click(2);
 blue.onclick = () => click(3);
-
 
 //inicio do jogo
 playGame();
