@@ -29,10 +29,10 @@ let lightColor = (element, number) => {
     number = number * 500;
     setTimeout(() => {
         element.classList.add('selected');
-    }, number - 250);
+    }, number-250);
     setTimeout(() => {
         element.classList.remove('selected');
-    });
+    }, number-1);
 }
 
 //checa se os botoes clicados são os mesmos da ordem gerada no jogo
