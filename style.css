@@ -57,9 +57,25 @@ body{
     margin: 50px;
     background-color: #fff;
     display: flex;
-    position: absolute;
     width: 30px;
     height: 30px;
     border-radius: 10%;
     border: 3px solid black;
+    margin-top: 100px;
+    margin-left: 40px;
+    position: absolute;
+}
+
+.lives img{
+    padding: 10px;
+    margin: 10px;
+    width: 30px;
+    height: 30px;
+}
+
+.lives{
+    padding: 10px;
+    padding-bottom: 0;
+    position: absolute;
+
 }

@@ -2,6 +2,7 @@ let order = [];
 let clickedOrder = [];
 let score = 0;
 let mute = false;
+let lives = 3
 
 //0 - verde: Dó
 //1 - vermelho: Ré
@@ -37,15 +38,23 @@ let lightColor = (element, number) => {
     }, number-1);
 }
 
+let executeSequence = ()=>{
+    for (i in order){
+        lightColor(order[i], Number(i));
+    }
+}
+
 //checa se os botoes clicados são os mesmos da ordem gerada no jogo
 let checkOrder = () => {
+    let correctOrder = true;
     for(let i in clickedOrder) {
         if(clickedOrder[i] != order[i]) {
-            gameOver();
+            tryAgain();
+            correctOrder = false;
             break;
         }
     }
-    if(clickedOrder.length == order.length) {
+    if ((clickedOrder.length == order.length) & (correctOrder)) {
         alert(`Pontuação: ${score}\nVocê acertou! Iniciando próximo nível!`);
         nextLevel();
     }
@@ -56,7 +65,6 @@ let click = (color) => {
     clickedOrder[clickedOrder.length] = color;
     playSound(createColorElement(color).classList);
     createColorElement(color).classList.add('selected');
-    
 
     setTimeout(() => {
         createColorElement(color).classList.remove('selected');
@@ -96,6 +104,12 @@ let gameOver = () => {
 let playGame = () => {
     alert('Bem vindo ao Gênesis! Iniciando novo jogo!');
     score = 0;
+    lives = 3;
+
+    document.getElementById('live1').src = "images/lives.png";
+    document.getElementById('live2').src = "images/lives.png";
+    document.getElementById('live3').src = "images/lives.png";
+
 
     nextLevel();
 }
@@ -114,7 +128,8 @@ red.onclick = () => click(1);
 yellow.onclick = () => click(2);
 blue.onclick = () => click(3);
 
-muting = () => {
+//Remove ou retorna o audio do jogo
+let muting = () => {
     mute = !mute;
 
     if(mute){
@@ -125,6 +140,27 @@ muting = () => {
         document.getElementById('mute').src = 'images/unmute.png';
         document.getElementById('mute').title = 'Remover som';
     } 
+}
+
+//funcao para game over
+let tryAgain = () => {
+    lives--;
+    document.getElementById('live'+(lives+1)).src = "images/heartbroken.png";
+    if (lives > 0){
+        if (lives > 1)
+            alert(`Você ainda tem mais ${lives} vidas. Continue tentando!`);  
+        else
+            alert('Essa é a sua última chance. Concentre-se bem!');  
+
+        clickedOrder = [];
+        for(let i in order) {
+            let elementColor = createColorElement(order[i]);
+            lightColor(elementColor, Number(i) + 1);
+        }
+
+    }else{
+        gameOver();
+    }
 }
 
 //inicio do jogo
