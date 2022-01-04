@@ -7,32 +7,43 @@
     <title>Genesis</title>
 </head>
 <div>
-    <div class= lives>
-        <img id="live1" src="images/lives.png" alt="Vida 1">
-        <img id="live2" src="images/lives.png" alt="Vida 2">
-        <img id="live3" src="images/lives.png" alt="Vida 3">
-    </div>
-    <img id="mute" src="images/unmute.png" title = "Remover som" alt="mutar" onclick="muting()">
-
+    
     <div class="main-game">
+        <form class="level">
+            <input type="radio" id="easy" name="option" value="1" onclick="changeLevel(1)" checked>
+            <label>Fácil</label>
+
+            <input type="radio" id="medium" name="option" value="5" onclick="changeLevel(5)">
+            <label>Médio</label>
+
+            <input type="radio" id="hard" name="option" value="10" onclick="changeLevel(10)">
+            <label>Difícil</label>
+        </form>
+        <div class="pontuacao">
+            <div>
+                <h4>Sua pontuação:</h4>
+                <h4 id="score">0</h4>
+            </div>
+            <div>
+                <h4>Melhor pontuação:</h4>
+                <h4 id="bestScore">0</h4>
+            </div>
+        </div>
         <div class="genius">
             <div class="blue"></div>
             <div class="yellow"></div>
             <div class="red"></div>
             <div class="green"></div>
         </div>
-    </div>
+        <div class= lives>
+            <img id="live1" src="images/lives.png" alt="Vida 1">
+            <img id="live2" src="images/lives.png" alt="Vida 2">
+            <img id="live3" src="images/lives.png" alt="Vida 3">
+        </div>
 
-    <div class="pontuacao">
-        <div>
-            <h4>Sua pontuação:</h4>
-            <h4 id="score">0</h4>
-        </div>
-        <div>
-            <h4>Melhor pontuação:</h4>
-            <h4 id="bestScore">0</h4>
-        </div>
+        <img id="mute" src="images/unmute.png" title = "Remover som" alt="mutar" onclick="muting()">    
     </div>
+    
 
     <button id="reset" type="button" onclick="playGame()">Resetar jogo</button>
 

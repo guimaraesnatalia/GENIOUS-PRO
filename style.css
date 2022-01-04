@@ -66,6 +66,7 @@ body{
     margin-left: 40px;
     position: absolute;
     right: 10px;
+    top: 0;
 }
 
 .lives img{
@@ -80,19 +81,20 @@ body{
     padding-bottom: 0;
     position: absolute;
     right: 10px;
+    top: 0;
 }
 
 .pontuacao{
     border: 2px solid rgb(61, 167, 109);
     padding: 10px;
     margin: 10px;
-    width: 200px;
+    width: 220px;
     position:absolute;
     border-radius: 10%;
     background-color: #fff;
     align-items: flex-end;
     display: grid;
-    top : 10px;
+    top : 100px;
     left: 10px;
 }
 
@@ -104,4 +106,26 @@ body{
     position:absolute;
     right: 130px;
     top: 115px;
+}
+
+.level{
+    border: 2px solid rgb(61, 167, 109);
+    border-radius: 10%;
+    background-color: #fff;
+    padding: 20px;
+    display: inline-table;
+    left: 10px;
+    top: 10px;
+    position: absolute;
+    margin: 10px;
+    width: 200px;
+    align-items: center;
+    justify-content: center;
+}
+
+#changeLevel{
+    position: relative;
+
+    align-self: center;
+    float: center;
 }

@@ -168,5 +168,16 @@ let tryAgain = () => {
     }
 }
 
+//Funçao para alterar o nível de dificuldade
+let changeLevel = (level) =>{
+    alert(`Iniciando nova rodada com ${level} sequencias`);
+    playGame();
+
+    //Level-1 porque já foi executado uma sequencia quando chamamos playGame();
+    for(let i = 0; i < level-1; i++){
+        nextLevel();
+    }
+}
+
 //inicio do jogo
 playGame();
