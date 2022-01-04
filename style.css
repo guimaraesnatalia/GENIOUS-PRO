@@ -99,3 +99,9 @@ body{
 .pontuacao div h4{
     display: inline-block;
 }
+
+#reset{
+    position:absolute;
+    right: 130px;
+    top: 115px;
+}

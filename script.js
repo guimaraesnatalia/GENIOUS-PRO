@@ -93,8 +93,6 @@ let nextLevel = () => {
 //funcao para game over
 let gameOver = () => {
     alert(`Pontuação: ${score}!\nVocê perdeu o jogo!\nClique em OK para iniciar um novo jogo`);
-    order = [];
-    clickedOrder = [];
 
     if (bestScore < score){
         bestScore = score;
@@ -110,6 +108,8 @@ let playGame = () => {
     alert('Bem vindo ao Gênesis! Iniciando novo jogo!');
     score = 0;
     lives = 3;
+    order = [];
+    clickedOrder = [];
 
     document.getElementById('live1').src = "images/lives.png";
     document.getElementById('live2').src = "images/lives.png";
