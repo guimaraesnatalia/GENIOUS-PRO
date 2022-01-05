@@ -1,7 +1,21 @@
+/* ELEMENTOS */
 body{
     margin:0;
     background-color: rgb(228, 242, 237);
     position: relative;
+}
+
+/* CLASSES */
+.blue{
+    grid-area: azul;
+    background-color: blue;
+    border-bottom-right-radius: 100%;
+}
+
+.green{
+    grid-area: verde;
+    background-color: green;
+    border-top-left-radius: 100%;
 }
 
 .main-game{
@@ -25,45 +39,24 @@ body{
     height: 700px;
 }
 
-.blue{
-    grid-area: azul;
-    background-color: blue;
-    border-bottom-right-radius: 100%;
-}
-
-.red{
-    grid-area: vermelho;
-    background-color: red;
-    border-top-right-radius: 100%;
-}
-
-.yellow{
-    grid-area: amarelo;
-    background-color: yellow;
-    border-bottom-left-radius: 100%;
-}
-
-.green{
-    grid-area: verde;
-    background-color: green;
-    border-top-left-radius: 100%;
-}
-
-.selected{
-    opacity: 0.1;
-}
-
-#mute{
-    padding: 10px;
-    margin: 50px;
-    background-color: #fff;
-    display: flex;
-    width: 30px;
-    height: 30px;
+.level{
+    border: 2px solid rgb(61, 167, 109);
     border-radius: 10%;
-    border: 3px solid black;
-    margin-top: 100px;
-    margin-left: 40px;
+    background-color: #fff;
+    padding: 20px;
+    display: inline-table;
+    left: 10px;
+    top: 10px;
+    position: absolute;
+    margin: 10px;
+    width: 200px;
+    align-items: center;
+    justify-content: center;
+}
+
+.lives{
+    padding: 10px;
+    padding-bottom: 0;
     position: absolute;
     right: 10px;
     top: 0;
@@ -74,14 +67,6 @@ body{
     margin: 10px;
     width: 30px;
     height: 30px;
-}
-
-.lives{
-    padding: 10px;
-    padding-bottom: 0;
-    position: absolute;
-    right: 10px;
-    top: 0;
 }
 
 .pontuacao{
@@ -102,30 +87,47 @@ body{
     display: inline-block;
 }
 
+.red{
+    grid-area: vermelho;
+    background-color: red;
+    border-top-right-radius: 100%;
+}
+
+.selected{
+    opacity: 0.1;
+}
+
+.yellow{
+    grid-area: amarelo;
+    background-color: yellow;
+    border-bottom-left-radius: 100%;
+}
+
+/* IDs */
+#changeLevel{
+    position: relative;
+    align-self: center;
+    float: center;
+}
+
+#mute{
+    padding: 10px;
+    margin: 50px;
+    background-color: #fff;
+    display: flex;
+    width: 30px;
+    height: 30px;
+    border-radius: 10%;
+    border: 3px solid black;
+    margin-top: 100px;
+    margin-left: 40px;
+    position: absolute;
+    right: 10px;
+    top: 0;
+}
+
 #reset{
     position:absolute;
     right: 130px;
     top: 115px;
-}
-
-.level{
-    border: 2px solid rgb(61, 167, 109);
-    border-radius: 10%;
-    background-color: #fff;
-    padding: 20px;
-    display: inline-table;
-    left: 10px;
-    top: 10px;
-    position: absolute;
-    margin: 10px;
-    width: 200px;
-    align-items: center;
-    justify-content: center;
-}
-
-#changeLevel{
-    position: relative;
-
-    align-self: center;
-    float: center;
 }
